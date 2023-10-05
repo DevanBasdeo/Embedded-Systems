@@ -52,7 +52,7 @@ void dot()
 {
         // ON
         greenLED = 1;           // LED ON
-        buzz.playTone("C");     // Play tone
+        buzz.playTone("D");     // Play tone
         wait_us(150000);        // Wait 150ms
 
         // OFF
@@ -68,7 +68,7 @@ void dash()
 {
         // ON
         greenLED = 1;           // LED ON
-        buzz.playTone("C");     // Play tone
+        buzz.playTone("D");     // Play tone
         wait_us(450000);        // Wait 450ms
 
         // OFF
