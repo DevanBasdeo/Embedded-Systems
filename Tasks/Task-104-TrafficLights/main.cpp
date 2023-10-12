@@ -11,10 +11,9 @@ DigitalOut green(TRAF_GRN1_PIN,0);
 //Object for controlling the LCD
 LCD_16X2_DISPLAY lcd;
 
-while (true)
-
-{
-    red = 1;
+while (true);
+    {
+        red = 1;
     lcd.puts("RED");
     wait_us(10000000); //10 seconds
     
@@ -36,4 +35,4 @@ while (true)
     lcd.cls();
     lcd.puts("Amber");
     wait_us(2000000); //2 seconds
-}
+    }
