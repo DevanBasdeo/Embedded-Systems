@@ -83,9 +83,19 @@ int main()
             //Update display
             disp = count;               
         }
+
+        //Did both Buttins Change?
+        if (btnA_curr == 1 && btnB_curr == 1){
+
+            //Was it a press?
+            if (btnA_curr == 1 && btnB_curr == 1){
+                //The buttins were pressed!
+                count = 0;
+            }
+        }
         
         // Slow it down a bit (and debounce the switches)
-        wait_us(250000);  
+        wait_us(10000);  
     }
 }
 

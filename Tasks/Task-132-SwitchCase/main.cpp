@@ -32,30 +32,52 @@ int main()
         switch (btn) {
             case 0:
             //Nothing pressed
-            greenLED = 0;
-            yellowLED = 0;
-            redLED = !redLED;
+            greenLED = 1;
+            yellowLED = 1;
+            redLED = 1;
             break;
 
             case 1:
             //Button A only
-            redLED = 0;
+            redLED = !redLED;
             yellowLED = 0;            
-            greenLED = !greenLED;
+            greenLED = 0;
             break;
 
-            case 3: 
+            case 2: 
             //Button A and B
             redLED = 0;
             yellowLED = !yellowLED;            
             greenLED = 0;
             break;
 
+            case 4:
+            // Button C
+            redLED = 0;
+            yellowLED = 0;
+            greenLED = !greenLED;
+            break;
+
+            case 8:
+            case 9:
+            case 10:
+            case 11:
+            case 12:
+            case 13:
+            case 14:
+            case 15:
+            // For any event where Switch D is Pressed
+            redLED = !redLED;
+            yellowLED = !yellowLED;
+            greenLED = !greenLED;
+            break;
+
+
             default:
             //All others
-            greenLED = 0;
-            yellowLED = 0;
-            redLED = 0;
+            greenLED = 1;
+            yellowLED = 1;
+            redLED = 1;
             break;
 
         }
