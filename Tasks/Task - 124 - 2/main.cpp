@@ -22,4 +22,3 @@ do {
 } while ((pattern > 0) || (pattern < 7) || (count > 5) || (count < 20) || (delay > 50) || (delay < 2000));
 
 leds = 1
-
