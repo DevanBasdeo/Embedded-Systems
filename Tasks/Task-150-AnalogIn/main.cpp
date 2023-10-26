@@ -14,6 +14,11 @@ AnalogIn pot(AN_POT_PIN);
 AnalogIn ldr(AN_LDR_PIN);
 AnalogIn mic(MIC_AN_PIN);
 
+//LED Lights
+DigitalOut greenLED(PC_6);
+DigitalOut redLED(PC_2);
+DigitalOut yellowLED(PC_3);
+
 int main()
 {
 
@@ -57,6 +62,35 @@ int main()
         //Wait 0.25 seconds
         wait_us(500000);
 
+        //Turning on Lights for each Condition
+        if(potVal > 33000){
+            ledDisp.setGroup(LatchedLED::LEDGROUP::RED);
+            ledDisp = 255;       
+        } else {
+            ledDisp.setGroup(LatchedLED::LEDGROUP::RED);
+            ledDisp = 0;
+        }
+
+
+        if(lightVal < 1500){
+            ledDisp.setGroup(LatchedLED::LEDGROUP::GREEN);
+            ledDisp = 255;
+        } else {
+            ledDisp.setGroup(LatchedLED::LEDGROUP::GREEN);
+            ledDisp = 0;
+        }
+
+        if(micVal > 40000){
+            ledDisp.setGroup(LatchedLED::LEDGROUP::BLUE);
+            ledDisp = 255;
+        } else {
+            ledDisp.setGroup(LatchedLED::LEDGROUP::BLUE);
+            ledDisp = 0;
+        }
+
+
     }
+
+
 }
 

@@ -19,7 +19,7 @@ int main()
     unsigned short samples[100];
 
     for (unsigned int m=0; m<100; m++) {
-        printf("%X ", samples[m]);
+        printf("%X\n ", samples[m]);
     }
 
     // Automatic headlamp 
@@ -28,7 +28,19 @@ int main()
         for (unsigned int m=0; m<100; m++) {
             unsigned short ldrVal   = ldr.read_u16();
             samples[m] = ldrVal;
-            wait_us(10000);          // 10ms
+            wait_us(100000);          // 100ms
+
+            int average;
+            average = samples[m]/100;
+            printf("The average value in the samples is %d\n", average);
+            wait_us(100000);
+
+            printf("The mean to 1dp is %d\n", average);
+            wait_us(100000);
+
+            if(average > 100){
+                greenLED = 1;
+            }else greenLED =0;
         }
 
         // TASK a. Calculate the average value in samples
