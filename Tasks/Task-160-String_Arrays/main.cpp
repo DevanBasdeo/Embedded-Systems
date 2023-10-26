@@ -22,8 +22,17 @@ int main()
 
             // TODO: Check which string is next
             //       and switch on the correct LED (or pause)
+             if(NULL == "red"){
+                redLED = 1;
+                greenLED = 0;
+                blueLED = 0;
+            }
 
             nextString = strtok(NULL, delim);
+            
+           
+
+            wait_us(2000000);
         }
     }
 

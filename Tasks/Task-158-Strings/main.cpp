@@ -19,7 +19,7 @@ LCD_16X2_DISPLAY disp;
 int main()
 {
     //1. Printing a string
-    char str1[] = "Welcome to ELEC143";
+    char str1[] = "Welcome to ELEC144";
 
     //Displaying a string with printf
     printf("%s\n", str1);
