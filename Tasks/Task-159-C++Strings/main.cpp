@@ -24,12 +24,12 @@ int main()
     cout << "You typed: " << x << endl;
 
     // Convert to C string
-    string elec143 = "Welcome to ELEC143"; 
+    string elec143 = "Welcome to ELEC144"; 
     const char *str = elec143.c_str();
     printf("C string is %s\n", str);
 
     // Convert C string to C++ string
-    char cstr[] = "ELEC143";
+    char cstr[] = "ELEC144";
     string cppStr = "Welcome to " + string(cstr);
     cout << cppStr << endl;
 
@@ -47,6 +47,13 @@ int main()
         else if (strInput == "blue") {
             blueLED = !blueLED;
         }
+        else if (strInput == "wait"){
+                wait_us(1000000);
+                redLED = 0;
+                greenLED = 0;
+                blueLED = 0;
+                
+            }
         else {
             cout << "Please specify red, green or blue" << endl;
         }

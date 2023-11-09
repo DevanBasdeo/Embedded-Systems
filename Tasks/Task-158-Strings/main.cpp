@@ -19,7 +19,7 @@ LCD_16X2_DISPLAY disp;
 int main()
 {
     //1. Printing a string
-    char str1[] = "Welcome to ELEC143";
+    char str1[] = "Welcome to ELEC144";
 
     //Displaying a string with printf
     printf("%s\n", str1);
@@ -40,7 +40,7 @@ int main()
 
     //3. Copying strings with strcpy
     char str3[16];
-    strcpy(str3, "Hello");
+    strncpy(str3, "Hello", 16);
     printf("%s\n", str3);
     printf("Size: %d\n", sizeof(str3));
     printf("String length: %d\n", strlen(str3));
@@ -48,7 +48,7 @@ int main()
     //strcpy and Constant strings
     const char str4[] = "The moon is made of cheese";
     char str5[64];
-    strcpy(str5, str4);
+    strncpy(str5, str4, 64);
     printf("%s\n", str5);
     printf("Size: %d\n", sizeof(str5));
     printf("String length: %d\n", strlen(str5));   
@@ -60,7 +60,7 @@ int main()
     for (unsigned int n=0; n<3; n++) {
         unsigned int x = rand();
         x = x % 65536; //16 bit (2 bytes)
-        sprintf(str6, "I guess %X", x);
+        printf(str6, "I guess %X", x);
         printf("%s\n", str6);
     }
 
