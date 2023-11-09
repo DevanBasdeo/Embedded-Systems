@@ -49,14 +49,12 @@ int main()
 
             // TODO: Check which string is next
             //       and switch on the correct LED (or pause)
+             
 
             nextString = strtok(NULL, delim);
-        
 
-        }
 
         
     }
 
 }
-
