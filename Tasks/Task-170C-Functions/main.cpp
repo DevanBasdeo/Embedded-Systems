@@ -1,4 +1,6 @@
 #include "uop_msb.h"
+#include <cstdlib>
+#include <functional>
 
 // LED Bar Display
 BusOut dataBits(LED_D0_PIN, LED_D1_PIN, LED_D2_PIN, LED_D3_PIN, LED_D4_PIN, LED_D5_PIN, LED_D6_PIN, LED_D7_PIN);
@@ -14,18 +16,27 @@ int getDelayMS();
 
 int main()
 {
+    int a = rand()%100;
+    int b = rand();
+    int c = rand();
     printf("Functions demo\n");
 
     led_init(0x00, true);
 
+    
     //Update the red
-    setLatch(0xFF,'r');
+    setLatch(a,'r');
+    
 
     //Update the green
-    setLatch(0b10101010, 'g');
+    setLatch(b, 'g');
+    
 
     //Update the blue
-    setLatch(0b11001100, 'b');
+    setLatch(c, 'b');
+    
+
+
 
 
     while(true) {

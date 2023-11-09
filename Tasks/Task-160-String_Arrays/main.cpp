@@ -52,7 +52,7 @@ int main()
              
 
             nextString = strtok(NULL, delim);
-
+        }
 
         
     }
