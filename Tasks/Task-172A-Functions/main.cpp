@@ -20,6 +20,20 @@ uint8_t pattern_grn[] =  {0,   3,  6,  12, 24, 48, 96, 192, 128, 0xFF};
 uint8_t pattern_blue[] = {128, 64, 32, 16, 8,  4,  2,  1,  0,    0xFF};
 uint8_t idx = 0;
 
+//Mean pot value
+//double meanPotValue = (double)getDelayMS();
+
+//Calculate average daily by filtering the potentiometer value
+int getAverageDelay(double alpha)
+{
+    static double meanPotValue = 0.0;
+    for (unsigned int n=0; n<32; n++) {
+        int potValue = getDelayMS();
+        meanPotValue = alpha*meanPotValue + (1.0-alpha)*potValue;
+    }
+    return (int)meanPotValue;
+}
+
 int main()
 {
     printf("Functions demo\n");
@@ -36,17 +50,13 @@ int main()
     setLatch(0, 'b');
 
     //Mean pot value
-    double meanPotValue = (double)getDelayMS();
+    //double meanPotValue = (double)getDelayMS();
 
 
     while(true) {
         
-        //Get average delay value
-        for (unsigned int n=0; n<32; n++) {
-            int potValue = getDelayMS();                    //Get raw value (with noise)
-            meanPotValue = 0.95*meanPotValue + 0.05*potValue; //Handy forumula!
-        }
-        int delay_ms = (int)meanPotValue;               //Cast to integer
+        //Get Average Delay Value
+        int delay_ms = getAverageDelay(0.95);
 
         //Update display
         disp.cls();
@@ -138,6 +148,7 @@ void led_init(uint8_t dat, bool enabled)
         LED_BAR_OE = 0;
     }
 }
+
 
 int getDelayMS() 
 {
