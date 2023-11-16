@@ -7,6 +7,7 @@ AnalogIn pot(AN_POT_PIN);
 DigitalOut redLED(TRAF_RED1_PIN);
 LCD_16X2_DISPLAY disp;
 PwmOut dispBackLight(LCD_BKL_PIN);
+AnalogIn ldr(AN_LDR_PIN);
 
 int main()
 {
@@ -21,9 +22,10 @@ int main()
     //Implement a delay (BLOCKING)
     wait_us(2000000);
 
-    //Update display
-    disp.locate(1, 0);
-    disp.printf("Turn the POT");
+    //Get Value of LDR
+    
+
+
 
     //Implement another delay (BLOCKING)
     wait_us(2000000);
@@ -32,16 +34,25 @@ int main()
     Timer tmr;
     tmr.start();
 
+
     while(true) {
         
         //Once every 100ms, re-read the POT and update the duty
         if (tmr.elapsed_time() >= 250ms) {
             float u = pot;              // Every 250ms, read the pot... 
+            //Update display
+            disp.locate(1, 0);
+            disp.printf("Pot: %d", u);
             dispBackLight.write(u);     // ... and update the brightness.
+            redLED = u;    
             tmr.reset();
+            
+
+        
         }
         
         //Other non-blocking code could go here
+        
         
     }
 
